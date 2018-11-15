@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/lightbox.css' %}" type="text/css/">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" type="text/css">
+    <title>Auxilia</title>
+    <link rel="shortcut icon" href="{% static 'img/icono.png' %}">
+</head>
+
+<body>
+    <!--Header-->
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <!---Navbar-->
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light headnav">
+                    <a class="navbar-brand" href="{% url 'index' %}">
+                        <img id="icono-a" src="{% static 'img/icono.png' %}" width="30" height="30" class="d-inline-block align-top"
+                            alt="icono">Auxilia</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'index' %}">Inicio
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'formulario' %}">Contacto</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Información
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'embajadas' %}">Embajadas</a>
+                                    <a class="dropdown-item" href="{% url 'documentos' %}">Documentos</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="col-md-4">
+                            {% if usuario is None %}
+                            <a id="login" class="nav-link textos text-right" href="{% url 'login' %}"><strong>Login</strong></a>
+                            {% endif %}
+                            <ul class="nav-item dropdown">
+                                {% if usuario is not None %}
+                                <li class="nav-link dropdown-toggle white-text" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrador
+                                    {{usuario}}</li>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'vistaFormulario' %}">Mensajes</a>
+                                    <a id="cerrar_sesion" class="dropdown-item textos2" href="{% url 'cerrar_session' %}"><strong>Cerrar
+                                            Sesión</strong></a>
+                                </div>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!---->
+    <section class="container-fluid espacio">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <h1 class="textos text-center">Embajadas</H1>
+            </div>
+        </div>
+        <div class="row espacio_pag">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <h6 class="text-center">En esta seccion encontraras la ubicacion de las oficinas más relevantes para
+                    poder hacer tus
+                    tramites...</h6>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!--Mapas-->
+    <section class="container-fluid espacio_pag">
+        <!--Mapa Colombia-->
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-center textos ">Embajada Colombia</h4>
+                        <p class="text-center">Los Militares 5885, Tercer Piso, Las Condes Santiago, Chile.</p>
+                        <a class="textos" href="http://chile.embajada.gov.co/">
+                            <p class="text-center">http://chile.embajada.gov.co/</p>
+                        </a>
+                        <span class="text-center" style="font-weight: 400;"></span>
+                        <p class="text-center"><span style="font-weight: 400;"> echile@cancilleria.gov.co&nbsp;</span></p>
+                        <p class="text-center"><span style="font-weight: 400;">Tél.:(56- 2) 22206273 / 22243585</span></p>
+                        <p class="text-center"><span style="font-weight: 400;">Línea gratuita: 188 800 55 23 00 </span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="maps_col">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.6652905504284!2d-70.57257618454992!3d-33.40589548078667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ced92d5715e1%3A0xe3c4d7a8d32f5c3!2sLos+Militares+5885%2C+Las+Condes%2C+Regi%C3%B3n+Metropolitana!5e0!3m2!1ses!2scl!4v1542118492667"
+                        width="400" height="300" frameborder="0" style="border-width:2px;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!--Mapa Haiti-->
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-center textos">Embajada Haití</h4>
+                        <p class="text-center">Calle General del Canto # 324, Providencia, Santiago Chile.</p>
+                        <a class="textos" href="http://www.embajadahaiti.cl/">
+                            <p class="text-center">www.embajadahaiti.cl</p>
+                        </a>
+                        <span class="text-center" style="font-weight: 400;"></span>
+                        <p class="text-center"><span style="font-weight: 400;">embajada@embajadahaiti.cl&nbsp;</span></p>
+                        <p class="text-center"><span style="font-weight: 400;">Tél.:56-22-2313364 / 56-22-2311776</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="maps_col">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.704158296956!2d-70.61923068509228!3d-33.430956503897484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c581461ef0f7%3A0x128891c06ad12437!2sEmbajada+de+la+Rep%C3%BAblica+de+Hait%C3%AD+en+Chile!5e0!3m2!1ses!2scl!4v1542077646333"
+                        width="400" height="300" frameborder="0" style="border-width:3px;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!--Mapa Venezuela-->
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-center textos">Embajada Venezuela</h4>
+                        <p class="text-center">Calle Bustos # 2021, Providencia, Santiago Chile.</p>
+                        <a class="textos" href="chile.embajada.gov.ve">
+                            <p class="text-center">http://chile.embajada.gob.ve/</p>
+                        </a>
+                        <span class="text-center" style="font-weight: 400;"></span>
+                        <p class="text-center"><span style="font-weight: 400;">embve.chile@mppre.gob.ve&nbsp;</span></p>
+                        <p class="text-center"><span style="font-weight: 400;">Tél.:56-22-3658700 / 56-22-29819087</span></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="maps_col">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d832.3377776349713!2d-70.60699855703012!3d-33.4401578712524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf9da163adf3%3A0x971859e33a28ebe8!2sBustos+2021%2C+Providencia%2C+Regi%C3%B3n+Metropolitana!5e0!3m2!1ses!2scl!4v1542119552492"
+                        width="400" height="300" frameborder="0" style="border-width:3px;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!--Mapa Perú-->
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-center textos">Embajada Perú</h4>
+                        <p class="text-center">Andrés Bello 1751, Providencia, Región Metropolitana</p>
+                        <a class="textos" href="chile.embajada.gov.ve">
+                            <p class="text-center">http://www.embajadadelperu.cl/</p>
+                        </a>
+                        <span class="text-center" style="font-weight: 400;"></span>
+                        <p class="text-center"><span style="font-weight: 400;">Tél.:2 23392600</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="maps_col">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.977441340113!2d-70.62115613444797!3d-33.42383248078151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf617311c03f%3A0xfe576f449552a7f8!2sEmbajada+de+Per%C3%BA!5e0!3m2!1ses!2scl!4v1542224588309"
+                        width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!--Mapa Perú-->
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-center textos">Departamento de extranjeria y migración</h4>
+                        <p class="text-center">Fanor Velasco 56, Santiago, Región Metropolitana</p>
+                        <a class="textos" href="chile.embajada.gov.ve">
+                            <p class="text-center">http://www.extranjeria.gob.cl/</p>
+                        </a>
+                        <span class="text-center" style="font-weight: 400;"></span>
+                        <p class="text-center"><span style="font-weight: 400;">Tél.:600 486 3000</span></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="maps_col">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.200335839785!2d-70.6619528844475!3d-33.44408678077575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a8fbd29d03%3A0xaad111f28032a5f3!2sOficina+Departamento+de+Extranjer%C3%ADa+y+Migraci%C3%B3n!5e0!3m2!1ses!2scl!4v1542224731351"
+                        width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Redes Sociales-->
+    <section class="container-fluid espacio_pag" id="redes-social">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <H2 class="text-center textos">Siguenos en redes sociales</H2>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Facebook">
+                        <a class="nav-link active" href="#">
+                            <i class="fab fa-facebook-f fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gmail">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-google-plus-g fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Instagram">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Twitter">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--Footer-->
+    <footer class="container-fluid footerpie">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <h6 class="text-center">
+                    2018 Auxilia - Calle Parral 123 - Santiago - Chile
+                </h6>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/lightbox-plus-jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/jquery.sliphover.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+
+
+</body>
+
+</html>

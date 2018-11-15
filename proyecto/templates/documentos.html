@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/lightbox.css' %}" type="text/css/">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" type="text/css">
+    <title>Auxilia</title>
+    <link rel="shortcut icon" href="{% static 'img/icono.png' %}">
+</head>
+
+<body>
+    <!--Header-->
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <!---Navbar-->
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light headnav">
+                    <a class="navbar-brand" href="{% url 'index' %}">
+                        <img id="icono-a" src="{% static 'img/icono.png' %}" width="30" height="30" class="d-inline-block align-top"
+                            alt="icono">Auxilia</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'index' %}">Inicio
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'formulario' %}">Contacto</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Información
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'embajadas' %}">Embajadas</a>
+                                    <a class="dropdown-item" href="{% url 'documentos' %}">Documentos</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="col-md-4">
+                            {% if usuario is None %}
+                            <a id="login" class="nav-link textos text-right" href="{% url 'login' %}"><strong>Login</strong></a>
+                            {% endif %}
+                            <ul class="nav-item dropdown">
+                                {% if usuario is not None %}
+                                <li class="nav-link dropdown-toggle white-text" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrador
+                                    {{usuario}}</li>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'vistaFormulario' %}">Mensajes</a>
+                                    <a id="cerrar_sesion" class="dropdown-item textos2" href="{% url 'cerrar_session' %}"><strong>Cerrar
+                                            Sesión</strong></a>
+                                </div>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!--Documentos-->
+    <section class="container-fluid espacio">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center textos">Documentos</h1>
+                <hr>
+                <div class="row espacio_pag">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <h3 class="textos text-center"> Para residente con vínculo con chileno </h3>
+                        <p class="salto_linea espacio_pag justify-content-center">Podrán solicitar Permanencia
+                            Definitiva, aquellos extranjeros que hayan
+                            sido titulares de un permiso de residencia de estudiante, por a lo menos los dos años
+                            inmediatamente anteriores a la fecha de presentación de la solicitud y que hayan culminado
+                            con los estudios que desarrollaban en el país.
+                            También podrán postular al permiso de permanencia definitiva, los familiares directos
+                            (cónyuge, padres e hijos) que cuenten con un permiso de residencia en condición de
+                            dependiente. </p>
+                        <a class="textos" href="http://www.extranjeria.gob.cl/media/2014/09/Solicitud-PEDE-CORREO.pdf">Descargar
+                            Documento</a>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
+                        <h6 class="textos text-center">Requisitos</h6>
+                        <a href="http://www.extranjeria.gob.cl/media/2016/07/PD3-V%C3%ADnculo-Chileno.pdf">
+                            <img class="mg-thumbnail img-fluid" width="400px" src="{% static 'img/documentos/img3.png' %}"
+                                alt="imagen"></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row espacio_pag">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <h3 class="textos text-center"> Para residentes con visa de estudiante</h3>
+                        <p class="salto_linea espacio_pag justify-content-center">Podrán solicitar Permanencia
+                            Definitiva, aquellos extranjeros que hayan sido titulares de un permiso de residencia de
+                            estudiante, por a lo menos los dos años inmediatamente anteriores a la fecha de
+                            presentación de la solicitud y que hayan culminado con los estudios que desarrollaban en el
+                            país.
+
+                            También podrán postular al permiso de permanencia definitiva, los familiares directos
+                            (cónyuge, padres e hijos) que cuenten con un permiso de residencia en condición de
+                            dependiente. </p>
+                        <a class="textos" href="http://www.extranjeria.gob.cl/media/2014/09/Solicitud-PEDE-CORREO.pdf">Descargar
+                            Documento</a>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
+                        <h6 class="textos text-center">Requisitos</h6>
+                        <a href="http://www.extranjeria.gob.cl/media/2016/07/PD2-Estudiante.pdf">
+                            <img class="mg-thumbnail img-fluid" width="400px" src="{% static 'img/documentos/img2.png' %}"
+                                alt="imagen"></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row espacio_pag">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <h3 class="textos text-center"> Para residente con contrato como dependiente de un empleador</h3>
+                        <p class="salto_linea espacio_pag justify-content-center">Podrán solicitar Permanencia
+                            Definitiva, aquellos extranjeros que hayan sido titulares de una visa de residencia sujeta
+                            a contrato a lo menos durante dos años o temporaria durante un año inmediatamente anterior
+                            a la presentación de la solicitud.</p>
+                        <a class="textos" href="http://www.extranjeria.gob.cl/media/2014/09/Solicitud-PEDE-CORREO.pdf">Descargar
+                            Documento</a>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
+                        <h6 class="textos text-center">Requisitos</h6>
+                        <a href="http://www.extranjeria.gob.cl/media/2016/07/PD1-Sujeta-a-Contrato-MOTIVOS-LABORALES.pdf">
+                            <img class="mg-thumbnail img-fluid" width="400px" src="{% static 'img/documentos/img1.png' %}"
+                                alt="imagen"></a>
+                    </div>
+                </div>
+                <hr>
+
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!--Redes Sociales-->
+    <section class="container-fluid espacio_pag" id="redes-social">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <H2 class="text-center textos">Siguenos en redes sociales</H2>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Facebook">
+                        <a class="nav-link active" href="#">
+                            <i class="fab fa-facebook-f fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gmail">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-google-plus-g fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Instagram">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Twitter">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--Footer-->
+    <footer class="container-fluid footerpie">
+        <div class="row">
+            <div class="col col-sm-12 col-md-12 col-lg-12">
+                <h6 class="text-center">
+                    2018 Auxilia - Calle Parral 123 - Santiago - Chile
+                </h6>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/lightbox-plus-jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/jquery.sliphover.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+
+
+</body>
+
+</html>

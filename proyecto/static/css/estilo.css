@@ -1,0 +1,166 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    background-color: rgb(236, 243, 243);
+}
+
+.espacio{
+    padding-top: 90px;
+}
+
+.bg-light{
+    background-color: rgb(194, 199, 199) !important;
+} 
+
+.textos{
+    color: rgb(28, 136, 138)
+}
+
+#icono-a{
+    margin-right: 8px;
+}
+
+.img-ayuda{  
+    border-radius: 50%; 
+}
+.espacio_pag{
+    padding-top: 20px;
+}
+.carousel-inner img {
+    width: 100%;
+    max-height: 400px;
+
+}
+.img-enfermeria{
+    border-radius: 5%; 
+}
+.img-asistencia{
+    border-radius: 5%;
+}
+
+.salto_linea{
+    line-height: 40px;
+}
+
+#redes-social{
+    padding-top: 15px;
+    padding-bottom: 10px;
+
+}
+
+#redes-social ul li a{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 8px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    color: rgb(2, 162, 165);
+    background-color: rgb(226, 229, 229);
+    border: 2px solid #FFF;
+    border-radius: 100%;
+    margin-right: 50px;
+}
+
+#redes-social ul li a:hover{
+    background-color: rgba(19, 19, 19, 0.993);
+    border-color: #FFF;
+    color: #FFF;
+}
+@media (max-width: 449px) {
+    #redes-social ul li a{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 8px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    color: rgb(2, 162, 165);
+    background-color: rgb(226, 229, 229);
+    border: 2px solid #FFF;
+    border-radius: 100%;
+    margin-right: 40px;
+    }
+}
+@media (max-width: 409px) {
+    #redes-social ul li a{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 8px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    color: rgb(2, 162, 165);
+    background-color: rgb(226, 229, 229);
+    border: 2px solid #FFF;
+    border-radius: 100%;
+    margin-right: 30px;
+    }
+}
+@media (max-width: 360px) {
+    #redes-social ul li a{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 8px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    color: rgb(2, 162, 165);
+    background-color: rgb(226, 229, 229);
+    border: 2px solid #FFF;
+    border-radius: 100%;
+    margin-right: 10px;
+    }
+}
+
+.footerpie{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(2, 162, 165)
+}
+
+#img-logo{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.btn-outline-success {
+    color: #FFF;
+    background-color: rgb(2, 162, 165);
+    border-color: rgb(2, 162, 165);
+}
+
+.btn-outline-success:hover {
+    background-color: rgb(30, 108, 109)
+}
+
+.error{
+    color: red;
+}
+
+hr{
+    background-color: rgb(30, 108, 109)
+}
+
+#maps_col{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 360px) {
+    #maps_col iframe{
+    width: 300px;
+    height: 300px;
+    }
+}
+#logo-login{
+    width: 100%;
+    padding-top: 200px;
+}
+
+.margin-login{
+    margin-left: auto;
+    margin-right: auto;
+}

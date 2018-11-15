@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/lightbox.css' %}" type="text/css/">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" type="text/css">
+    <title>Auxilia</title>
+    <link rel="shortcut icon" href="{% static 'img/icono.png' %}">
+</head>
+
+<body class="text-center">
+    <form method="POST" id="formulario-login" action="{% url "iniciar" %}" class="form-signin">
+        {% csrf_token%}
+        <a class="navbar-brand" href="{% url 'index' %}"> <img id="logo-login" class="mb-4" src="{% static 'img/logotipo.png' %}" alt="Logo"></a>
+        <h1 class="h3 mb-3 font-weight-normal white-text">Inicio Sesión</h1>
+        <div class="col-lg-4 mb-2 margin-login">
+            <label for="nombre_usuario" class="sr-only">Nombre de Usuario</label>
+            <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-control" placeholder="Nombre de usuario" required
+                autofocus="">
+        </div>
+        <div class="col-lg-4 margin-login">
+            <label for="contrasenia" class="sr-only">Contraseña</label>
+            <input type="password" name="contrasenia" id="contrasenia" class="form-control" placeholder="Contraseña" required>
+        </div>
+        <div class="col-lg-4 mt-3 margin-login">
+            <button class="btn btn-lg btn-outline-success btn-block" type="submit">Iniciar</button>
+        </div>
+        <br>
+        <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+        
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/lightbox-plus-jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/jquery.sliphover.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+
+
+</body>
+
+</html>
